@@ -1,21 +1,17 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwindcss from "@tailwindcss/vite";
+import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite';
 
-import react from "@astrojs/react";
-
-// https://astro.build/config
 export default defineConfig({
+  // Ruta base exacta en GitHub Pages
   base: '/portafolio/',
+  // site puede quedarse o eliminarse, no afecta el build
   site: 'https://cristhiandevcod.github.io/portafolio/',
+
   vite: {
-      plugins: [tailwindcss()],
-      resolve: {
-        alias: {
-          "@": "/src",
-        }
-      }
+    plugins: [tailwindcss()],
+    resolve: { alias: { '@': '/src' } },
   },
 
-  integrations: [react()]
+  integrations: [react()],
 });
